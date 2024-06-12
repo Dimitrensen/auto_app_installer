@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# VS code installation
+sudo apt get update
+sudo apt get upgrade -y
+
+sudo apt install code -y
+
+# Docker installation
+## Remove all conflicting packages first
+for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
+
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh ./get-docker.sh
+
+# Install latest version of Docker
+curl -fsSL https://test.docker.com -o test-docker.sh
+sudo sh test-docker.sh && sudo docker run hello-world
