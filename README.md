@@ -1,2 +1,2 @@
-# file_renamer
-A script which takes a number of files in a directory backs them up and renames them based on their MD files
+# app installer script
+An executable script which is run on a fresh Linux/Pi OS system to install a few apps with one click
