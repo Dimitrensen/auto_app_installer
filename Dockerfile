@@ -1,13 +1,14 @@
 # Use a base image compatible with Raspberry Pi (e.g., arm32v7/ubuntu)
-FROM arm32v7/ubuntu:latest
+FROM arm64v8/ubuntu:latest
 
 # Update the package list and install any dependencies required by your script
 RUN apt-get update && apt-get install -y \
-    curl \
-    wget \
-    software-properties-common \
-    # Add other package dependencies here
-    && apt-get clean
+curl \
+wget \
+software-properties-common \
+gnupg \
+apt-transport-https \
+&& apt-get clean
 
 # Copy your script into the Docker image
 COPY pi_script /usr/local/bin/pi_script

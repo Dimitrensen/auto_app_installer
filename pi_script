@@ -3,14 +3,24 @@
 set -x
 
 # VS code installation
-sudo apt update
-sudo apt upgrade -y
-sudo apt install code -y
+apt update
+apt upgrade -y
+apt install code -y
+
+# #Alternative VS code installation:
+# # Add the Visual Studio Code repository and its key
+# # This part should install the `apt-transport-https` if not already available
+# apt install -y software-properties-common apt-transport-https wget gnupg
+# wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/keyrings/packages.microsoft.gpg
+# install -o root -g root -m 644 /etc/apt/keyrings/packages.microsoft.gpg /usr/share/keyrings/
+# add-apt-repository "deb [arch=arm64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main"
+# apt update
+# apt install -y code
 
 # Install Docker
 curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh ./get-docker.sh
+sh ./get-docker.sh
 
 # Install latest version of Docker
 curl -fsSL https://test.docker.com -o test-docker.sh
-sudo sh test-docker.sh && sudo docker run hello-world
+sh test-docker.sh && docker run hello-world
